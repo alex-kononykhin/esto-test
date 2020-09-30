@@ -1,0 +1,4 @@
+<ng-container *ngIf="photo">
+  <img class="image" [src]="photo!.url" alt="Photo" />
+  <mat-icon *ngIf="isFavorite" class="icon">star_rate</mat-icon>
+</ng-container>

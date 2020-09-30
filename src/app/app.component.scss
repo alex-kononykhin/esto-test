@@ -1,0 +1,14 @@
+.wrapper {
+  margin: 2rem 0;
+}
+
+.links-wrapepr {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.link {
+  &--active {
+    border-bottom: 2px solid;
+  }
+}

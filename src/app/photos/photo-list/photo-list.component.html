@@ -1,0 +1,25 @@
+<div
+  class="container"
+  infiniteScroll
+  [infiniteScrollDisabled]="(isLoading | async) || false"
+  [infiniteScrollDistance]="2"
+  (scrolled)="loadMorePhotos()"
+  [alwaysCallback]="true"
+>
+  <div class="row">
+    <div
+      class="col-sm-12 col-md-6 col-lg-4"
+      *ngFor="let photo of photos | async; trackBy: trackByItems"
+    >
+      <app-photo-item
+        [photo]="photo"
+        [isFavorite]="photo.favorite"
+        (click)="addToFavorites(photo)"
+      ></app-photo-item>
+    </div>
+  </div>
+  <div *ngIf="isLoading | async" class="loading-indicator">
+    <mat-spinner [diameter]="40"></mat-spinner>
+    <p class="loading-text">Loading...</p>
+  </div>
+</div>
